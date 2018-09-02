@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package data;
+
+option java_multiple_files = true;
+
+// A block of data, to simply increase gRPC message size.
+message Person {
+    int32 age = 1;
+    string name = 2;
+    BloodType blodType = 3;
+    repeated int32 ages = 4;
+    map<string,int32> ageMaps = 5;
+//    reserved  100;
+//    reserved "name";
+}
+
+enum BloodType {
+    A = 0;
+    B = 1;
+    O = 2;
+    AB = 3;
+}
