@@ -89,10 +89,7 @@ task proguard(type: proguard.gradle.ProGuardTask, dependsOn: jar) {
             "${javaHome}/jmods/java.base.jmod"  // Java SEランタイム
     )
 
-    // Fat JARを使わない場合、依存ライブラリーをlibraryjarsに追加する
-//    libraryjars configurations.compile.files
-
-    // 出力先 お好みでどうぞ
+    // 出力先 
     outjars("${jar.destinationDir}/proguarded.jar")
 
     // Shrinkしないクラス
@@ -102,10 +99,6 @@ task proguard(type: proguard.gradle.ProGuardTask, dependsOn: jar) {
 
     dontwarn("com.google.**")
     dontwarn("javax.**")
-    dontwarn("ch.qos.logback.**")
-    dontwarn('afu.org.checkerframework.**')
-    dontwarn("org.checkerframework.**")
-    dontwarn('org.slf4j.**')
 }
 
 // assemble実行時にProGuard
